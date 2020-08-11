@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <resources>
+        <color name="colorPrimary">#FFFFFF</color>
+        <color name="colorPrimaryDark">#FFFFFF</color>
+        <color name="colorAccent">#000000</color>
+
+<!--    Warna untuk Button-->
+    <color name="gradient_start_color">#6A0066</color>
+    <color name="gradient_end_color">#a81084</color>
+
+<!-- Warna Tab-->
+    <color name="tab_indicator">#c0c0c0</color>
+    <color name="intro_title_color">#000000</color>
+    <color name="intro_description_color">#656565</color>
+
+        <color name="pink">#FF65D3</color>
+        <color name="putih">#FFFFFF</color>
+        <color name="hitam">#000000</color>
+        <color name="merah">#FF0800</color>
+        <color name="hijau">#00FF0F</color>
+        <color name="biru_muda">#4cd3c2</color>
+        <color name="abu">#DDDDDD</color>
+        <color name="ungu">#6A0066</color>
+
+    </resources>

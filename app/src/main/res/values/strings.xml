@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">iwuAPK</string>
+    <string name="admin">Admin</string>
+    <string name="dosen">Dosen</string>
+    <string name="bantuan">Bantuan</string>
+    <string name="dibuat_oleh_arif_rachmat_darmawan">Dibuat oleh Arif Rachmat Darmawan</string>
+    <string name="halo">Halo!,</string>
+    <string name="selamat_datang_admin">Selamat datang, Admin!</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="masuk">Masuk</string>
+    <string name="selamat_datang">Selamat datang!</string>
+    <string name="tambah">Tambah</string>
+    <string name="tambah_dosen">Tambah Dosen</string>
+    <string name="tambah_admin">Tambah Admin</string>
+</resources>

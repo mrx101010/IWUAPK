@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1012560083558",
+    "firebase_url": "https://iwuapk.firebaseio.com",
+    "project_id": "iwuapk",
+    "storage_bucket": "iwuapk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1012560083558:android:db5e0393224cd0a88f8ba7",
+        "android_client_info": {
+          "package_name": "com.example.iwuapk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1012560083558-iakttec6evehrjek29fd690ftc7te150.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFy_zzKsWaizA6H0MkzP-yJ33UEjyG0m0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1012560083558-iakttec6evehrjek29fd690ftc7te150.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
