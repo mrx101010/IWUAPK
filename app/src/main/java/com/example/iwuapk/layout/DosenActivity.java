@@ -1,19 +1,18 @@
 package com.example.iwuapk.layout;
 
 import android.os.Bundle;
-
-import com.example.iwuapk.R;
-import com.example.iwuapk.adapter.DosenAdapter;
-import com.example.iwuapk.model.Dosen;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import android.view.LayoutInflater;
+import android.view.View;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
+import com.example.iwuapk.R;
+import com.example.iwuapk.adapter.DosenAdapter;
+import com.example.iwuapk.model.Dosen;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -23,19 +22,19 @@ public class DosenActivity extends AppCompatActivity {
     private ArrayList<Dosen> dosenArrayList;
     private DosenAdapter adapter;
 
-    private String [] tvNamaDosen = new String[] {"Arif Rachmat","Arif Rachmat","Dadang Suhendar", "Dendi Kusnaendi", "Gilang", "Erni Setiyani"};
+    private String[] tvNamaDosen = new String[]{"Arif Rachmat", "Arif Rachmat", "Dadang Suhendar", "Dendi Kusnaendi", "Gilang", "Erni Setiyani"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dosen);
 
-        DosenRecyclerView = (RecyclerView)findViewById(R.id.recyclerView_dataDosen);
+        DosenRecyclerView = (RecyclerView) findViewById(R.id.recyclerView_dataDosen);
 
         dosenArrayList = showDataDosen();
         adapter = new DosenAdapter(this, dosenArrayList);
         DosenRecyclerView.setAdapter(adapter);
-        DosenRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL,false));
+        DosenRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
 
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -48,10 +47,10 @@ public class DosenActivity extends AppCompatActivity {
 
     }
 
-    private ArrayList<Dosen> showDataDosen(){
+    private ArrayList<Dosen> showDataDosen() {
         ArrayList<Dosen> list = new ArrayList<>();
 
-        for(int i = 0; i < 5; i++ ){
+        for (int i = 0; i < 5; i++) {
             Dosen dosen = new Dosen();
             dosen.setNama_dosen(tvNamaDosen[i]);
             list.add(dosen);
@@ -59,7 +58,7 @@ public class DosenActivity extends AppCompatActivity {
         return list;
     }
 
-    private void showDialogForm(){
+    private void showDialogForm() {
         final AlertDialog.Builder dialog = new AlertDialog.Builder(DosenActivity.this);
         LayoutInflater inflater = getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.form_add_dosen, null);
