@@ -23,15 +23,15 @@
     <Button
         android:id="@+id/btn_lanjut"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_50sdp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:layout_marginBottom="32dp"
         android:background="@color/putih"
         android:drawableRight="@drawable/ic_lanjut"
-        android:drawableTint="@color/gradient_start_color"
+        android:drawableTint="@color/putih"
         android:text="Lanjut"
-        android:textColor="@color/gradient_start_color"
+        android:textColor="@color/putih"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

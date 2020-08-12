@@ -6,8 +6,8 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.example.iwuapk.R;
-import com.example.iwuapk.login.LoginUserActivity;
 import com.example.iwuapk.login.LoginAdminActivity;
+import com.example.iwuapk.login.LoginDosenActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
         ibDosen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(LoginActivity.this, LoginUserActivity.class);
+                Intent i = new Intent(LoginActivity.this, LoginDosenActivity.class);
                 startActivity(i);
             }
         });

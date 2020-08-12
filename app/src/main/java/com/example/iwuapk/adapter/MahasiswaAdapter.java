@@ -1,29 +1,25 @@
 package com.example.iwuapk.adapter;
 
 import android.content.Context;
-import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.iwuapk.R;
 import com.example.iwuapk.model.Mahasiswa;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
-public class TambahMahasiswaAdapter extends RecyclerView.Adapter<TambahMahasiswaAdapter.MyViewHolder> {
+public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaAdapter.MyViewHolder> {
 
     private LayoutInflater inflater;
     private ArrayList<Mahasiswa> mahasiswaArrayList;
 
-    public  TambahMahasiswaAdapter(Context ctx, ArrayList<Mahasiswa>mahasiswaArrayList){
+    public MahasiswaAdapter(Context ctx, ArrayList<Mahasiswa>mahasiswaArrayList){
         inflater = LayoutInflater.from(ctx);
         this.mahasiswaArrayList = mahasiswaArrayList;
     }
@@ -31,7 +27,7 @@ public class TambahMahasiswaAdapter extends RecyclerView.Adapter<TambahMahasiswa
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= inflater.inflate(R.layout.item_tambah_mahasiswa,parent,false);
+        View view= inflater.inflate(R.layout.item_mahasiswa,parent,false);
         MyViewHolder holder = new MyViewHolder(view);
 
         return holder;

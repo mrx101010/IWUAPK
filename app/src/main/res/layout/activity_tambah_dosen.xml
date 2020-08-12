@@ -1,68 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".layout.TambahDosenActivity">
+    android:background="@color/putih">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/tvJudul_dosen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Dosen"
+    <ImageView
+        android:layout_width="@dimen/_300sdp"
+        android:layout_height="@dimen/_300sdp"
+        android:background="@drawable/logo"
+        android:layout_gravity="center"
         android:layout_marginTop="@dimen/_30sdp"
-        android:layout_centerHorizontal="true"
-        android:textSize="@dimen/_30ssp"
-        android:textColor="#000"
-        android:textStyle="bold"/>
+        android:alpha="0.3" />
 
-        <TextView
-            android:id="@+id/tvPagar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="#"
-            android:layout_below="@id/tvJudul_dosen"
-            android:layout_marginLeft="@dimen/_15sdp"
-            android:textSize="@dimen/_17ssp"
-            android:textColor="#000"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:id="@+id/tvCountDosen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1"
-            android:textSize="@dimen/_17ssp"
-            android:textColor="#000"
-            android:textStyle="bold"
-            android:layout_marginLeft="@dimen/_5sdp"
-            android:layout_below="@id/tvJudul_dosen"
-            android:layout_toRightOf="@id/tvPagar"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView_dataDosen"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvPagar"
-        android:layout_marginTop="@dimen/_8sdp"
-        android:layout_marginLeft="@dimen/_15sdp"
-        android:layout_marginRight="@dimen/_15sdp"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_20sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tambah_dosen"
+                android:textSize="@dimen/_30ssp"
+                android:textColor="@color/ungu"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/_55sdp"/>
+        </LinearLayout>
 
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
+            <EditText
+                android:id="@+id/et_email"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/et_border"
+                android:layout_marginTop="@dimen/_100sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:paddingLeft="@dimen/_10sdp"
+                android:hint="@string/email"
+                android:textColor="@color/hitam"
+                android:textColorHint="@color/hitam"
+                android:inputType="textEmailAddress"
+                android:maxLines="1" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/et_border"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:paddingLeft="@dimen/_10sdp"
+                android:hint="@string/password"
+                android:maxLines="1"
+                android:textColor="@color/hitam"
+                android:textColorHint="@color/hitam"
+                android:inputType="textPassword"
+                android:layout_below="@+id/et_email" />
+
+            <Button
+                android:id="@+id/btn_tambah"
+                android:layout_width="@dimen/_250sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center"
+                android:background="@color/ungu"
+                android:layout_marginStart="@dimen/_40sdp"
+                android:layout_marginTop="30dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_marginEnd="@dimen/_40sdp"
+                android:enabled="true"
+                android:text="@string/tambah"
+                android:textStyle="bold"
+                android:textColor="@color/putih" />
+
+            <ProgressBar
+                android:id="@+id/pb_tambah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/_50sdp"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

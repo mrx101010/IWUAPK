@@ -12,31 +12,29 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.iwuapk.R;
 import com.example.iwuapk.model.Dosen;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
-public class TambahDosenAdapter extends RecyclerView.Adapter<TambahDosenAdapter.ViewHolder> {
+public class DosenAdapter extends RecyclerView.Adapter<DosenAdapter.ViewHolder> {
 
     private LayoutInflater inflater;
     private ArrayList<Dosen> dosenArrayList;
 
-    public TambahDosenAdapter(Context ctx, ArrayList<Dosen>dosenArrayList){
+    public DosenAdapter(Context ctx, ArrayList<Dosen>dosenArrayList){
         inflater = LayoutInflater.from(ctx);
         this.dosenArrayList = dosenArrayList;
     }
 
     @Override
-    public TambahDosenAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public DosenAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = inflater.inflate(R.layout.item_tambah_dosen, parent, false);
+        View view = inflater.inflate(R.layout.item_dosen, parent, false);
         ViewHolder holder = new ViewHolder(view);
 
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TambahDosenAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull DosenAdapter.ViewHolder holder, int position) {
 
         holder.tv_NamaDosen.setText(dosenArrayList.get(position).getNama_dosen());
     }

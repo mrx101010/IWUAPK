@@ -134,7 +134,7 @@ public class IntroActivity extends AppCompatActivity {
     private void loadLastScreen() {
         btnLanjut.setVisibility(View.INVISIBLE);
         btnMulai.setVisibility(View.VISIBLE);
-        tabIndicator.setVisibility(View.INVISIBLE);
+        tabIndicator.setVisibility(View.VISIBLE);
         btnMulai.setAnimation(btnAnim);
     }
 }

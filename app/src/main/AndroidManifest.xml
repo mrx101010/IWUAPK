@@ -10,21 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".layout.TambahMahasiswaActivity"
-            android:label="@string/title_activity_tambah_mahasiswa"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-        </activity>
-        <activity
-            android:name=".layout.TambahDosenActivity"
-            android:label="@string/title_activity_tambah_dosen"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity
             android:name=".layout.SplashScreen"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBar">
@@ -43,11 +28,11 @@
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBar" />
         <activity
-            android:name=".login.LoginAdminActivity"
+            android:name=".login.LoginDosenActivity"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBar" />
         <activity
-            android:name=".login.LoginUserActivity"
+            android:name=".login.LoginAdminActivity"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBar" />
         <activity
@@ -66,6 +51,13 @@
             android:name=".layout.BantuanActivity"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBar" />
+        <activity
+            android:name=".layout.MahasiswaActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar"/>
+        <activity
+            android:name=".layout.DosenActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar"/>
     </application>
-
 </manifest>

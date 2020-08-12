@@ -1,45 +1,39 @@
 package com.example.iwuapk.layout;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 
 import com.example.iwuapk.R;
-import com.example.iwuapk.adapter.TambahDosenAdapter;
+import com.example.iwuapk.adapter.DosenAdapter;
 import com.example.iwuapk.model.Dosen;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class TambahDosenActivity extends AppCompatActivity {
+public class DosenActivity extends AppCompatActivity {
 
     private RecyclerView DosenRecyclerView;
     private ArrayList<Dosen> dosenArrayList;
-    private TambahDosenAdapter adapter;
+    private DosenAdapter adapter;
 
     private String [] tvNamaDosen = new String[] {"Arif Rachmat","Arif Rachmat","Dadang Suhendar", "Dendi Kusnaendi", "Gilang", "Erni Setiyani"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tambah_dosen);
+        setContentView(R.layout.activity_dosen);
 
         DosenRecyclerView = (RecyclerView)findViewById(R.id.recyclerView_dataDosen);
 
         dosenArrayList = showDataDosen();
-        adapter = new TambahDosenAdapter(this, dosenArrayList);
+        adapter = new DosenAdapter(this, dosenArrayList);
         DosenRecyclerView.setAdapter(adapter);
         DosenRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL,false));
 
@@ -66,7 +60,7 @@ public class TambahDosenActivity extends AppCompatActivity {
     }
 
     private void showDialogForm(){
-        final AlertDialog.Builder dialog = new AlertDialog.Builder(TambahDosenActivity.this);
+        final AlertDialog.Builder dialog = new AlertDialog.Builder(DosenActivity.this);
         LayoutInflater inflater = getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.form_add_dosen, null);
         dialog.setView(dialogView);
