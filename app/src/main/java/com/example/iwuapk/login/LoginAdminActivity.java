@@ -38,7 +38,7 @@ public class LoginAdminActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }else if (checkbox.equals("false")){
-            Toast.makeText(getApplicationContext(), "Mohon untuk login", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Selamat datang!", Toast.LENGTH_SHORT).show();
         }
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
