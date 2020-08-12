@@ -9,7 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".layout.TambahMahasiswaActivity"
+            android:label="@string/title_activity_tambah_mahasiswa"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".layout.TambahDosenActivity"
+            android:label="@string/title_activity_tambah_dosen"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".layout.SplashScreen"
             android:screenOrientation="portrait"
@@ -20,9 +33,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".intro.IntroActivity"
+        <activity
+            android:name=".intro.IntroActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/NoActionBar"/>
+            android:theme="@style/NoActionBar" />
         <activity
             android:name=".layout.LoginActivity"
             android:screenOrientation="portrait"
