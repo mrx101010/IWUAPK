@@ -1,0 +1,50 @@
+package com.example.iwuapk.layout;
+
+import android.os.Bundle;
+
+import com.example.iwuapk.adapter.TambahMahasiswaAdapter;
+import com.example.iwuapk.model.Mahasiswa;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.view.View;
+
+import com.example.iwuapk.R;
+
+import java.util.ArrayList;
+
+public class TambahMahasiswaActivity extends AppCompatActivity {
+
+    private RecyclerView MahasiswaRecyclerView;
+    private ArrayList<Mahasiswa> mahasiswaArrayList;
+    private TambahMahasiswaActivity adapter;
+
+    private String [] tvNama_mhs = new String[] {"Arif Rachmat","Arif Rachmat","Dadang Suhendar", "Dendi Kusnaendi", "Gilang", "Erni Setiyani"};
+    private String [] tvAsal_sklh = new String[] {"SMKN 4 BANDUNG", "SMKN 3 BANDUNG", "SMP BHAYANGKARI", "SD CIJERAH", "SMKN 4 BANDUNG", "SMKN 8 BANDUNG"};
+    private String [] tvFakultas = new String[] {"Teknik Informatika","Teknik Informatika","Teknik Informatika","Teknik Bangunan", "Tata Boga", "Teknik Informatika"};
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_tambah_mahasiswa);
+
+        MahasiswaRecyclerView = (RecyclerView)findViewById(R.id.recyclerView_dataMahasiswa);
+
+        mahasiswaArrayList = showDataMahasiswa();
+        adapter = new TambahMahasiswaAdapter()
+
+
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+    }
+}
