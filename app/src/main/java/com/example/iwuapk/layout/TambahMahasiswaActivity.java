@@ -9,6 +9,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
@@ -21,7 +22,7 @@ public class TambahMahasiswaActivity extends AppCompatActivity {
 
     private RecyclerView MahasiswaRecyclerView;
     private ArrayList<Mahasiswa> mahasiswaArrayList;
-    private TambahMahasiswaActivity adapter;
+    private TambahMahasiswaAdapter adapter;
 
     private String [] tvNama_mhs = new String[] {"Arif Rachmat","Arif Rachmat","Dadang Suhendar", "Dendi Kusnaendi", "Gilang", "Erni Setiyani"};
     private String [] tvAsal_sklh = new String[] {"SMKN 4 BANDUNG", "SMKN 3 BANDUNG", "SMP BHAYANGKARI", "SD CIJERAH", "SMKN 4 BANDUNG", "SMKN 8 BANDUNG"};
@@ -35,7 +36,11 @@ public class TambahMahasiswaActivity extends AppCompatActivity {
         MahasiswaRecyclerView = (RecyclerView)findViewById(R.id.recyclerView_dataMahasiswa);
 
         mahasiswaArrayList = showDataMahasiswa();
-        adapter = new TambahMahasiswaAdapter()
+        adapter = new TambahMahasiswaAdapter(this, mahasiswaArrayList);
+        MahasiswaRecyclerView.setAdapter(adapter);
+        MahasiswaRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL,false));
+
+
 
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -46,5 +51,18 @@ public class TambahMahasiswaActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    private ArrayList<Mahasiswa> showDataMahasiswa(){
+        ArrayList<Mahasiswa> list = new ArrayList<>();
+
+        for (int i = 0; i < 5; i++){
+            Mahasiswa mahasiswa = new Mahasiswa();
+            mahasiswa.setNamaMahasiswa(tvNama_mhs[i]);
+            mahasiswa.setAsalSekolah(tvAsal_sklh[i]);
+            mahasiswa.setFakultas(tvFakultas[i]);
+            list.add(mahasiswa);
+        }
+        return list;
     }
 }
