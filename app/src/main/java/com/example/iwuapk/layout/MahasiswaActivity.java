@@ -1,9 +1,15 @@
 package com.example.iwuapk.layout;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,6 +19,11 @@ import com.example.iwuapk.R;
 import com.example.iwuapk.adapter.MahasiswaAdapter;
 import com.example.iwuapk.model.Mahasiswa;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -25,6 +36,7 @@ public class MahasiswaActivity extends AppCompatActivity {
     private String[] tvNama_mhs = new String[]{"Arif Rachmat", "Arif Rachmat", "Dadang Suhendar", "Dendi Kusnaendi", "Gilang", "Erni Setiyani"};
     private String[] tvAsal_sklh = new String[]{"SMKN 4 BANDUNG", "SMKN 3 BANDUNG", "SMP BHAYANGKARI", "SD CIJERAH", "SMKN 4 BANDUNG", "SMKN 8 BANDUNG"};
     private String[] tvFakultas = new String[]{"Teknik Informatika", "Teknik Informatika", "Teknik Informatika", "Teknik Bangunan", "Tata Boga", "Teknik Informatika"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

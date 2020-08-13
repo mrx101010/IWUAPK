@@ -37,17 +37,18 @@
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_40sdp"
-        android:backgroundTint="@color/ungu"
-        android:background="@drawable/btn_purple"
-        android:text="Tambah"
-        android:textColor="@color/putih"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edt_add_tambahDosen" />
+<!--    <Button-->
+<!--        android:id="@+id/btn_tambah_dosen"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="@dimen/_40sdp"-->
+<!--        android:backgroundTint="@color/ungu"-->
+<!--        android:background="@drawable/btn_purple"-->
+<!--        android:text="Tambah"-->
+<!--        android:textColor="@color/putih"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/edt_add_tambahDosen" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
