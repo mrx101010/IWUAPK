@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.iwuapk.R;
@@ -21,6 +22,7 @@ public class LoginAdminActivity extends AppCompatActivity {
     EditText etUsername, etPassword;
     Button btnLogin;
     CheckBox cbIngatSaya;
+    ProgressBar pbMasuk;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,15 +32,16 @@ public class LoginAdminActivity extends AppCompatActivity {
         etPassword = findViewById(R.id.et_password);
         cbIngatSaya = findViewById(R.id.cb_ingatsaya);
         btnLogin = findViewById(R.id.btn_login);
+        pbMasuk = findViewById(R.id.pb_masuk);
 
         SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
-        String checkbox = preferences.getString("remember", "");
+        String checkbox = preferences.getString("rememberAdmin", "");
         if (checkbox.equals("true")){
             Intent intent = new Intent(getApplicationContext(), MenuAdminActivity.class);
             startActivity(intent);
             finish();
         }else if (checkbox.equals("false")){
-            Toast.makeText(getApplicationContext(), "Selamat datang!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Selamat datang, Admin!", Toast.LENGTH_SHORT).show();
         }
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -64,13 +67,17 @@ public class LoginAdminActivity extends AppCompatActivity {
                     return;
                 }
 
+                pbMasuk.setVisibility(View.VISIBLE);
+
                 if (username.equals("admin") && password.equals("123456")){
+                    pbMasuk.setVisibility(View.GONE);
                     Toast.makeText(getApplicationContext(), "Selamat datang, Admin!", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(), MenuAdminActivity.class);
                     startActivity(intent);
                     finish();
                 }
                 else {
+                    pbMasuk.setVisibility(View.GONE);
                     Toast.makeText(getApplicationContext(), "Username dan password kamu salah!", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -83,14 +90,14 @@ public class LoginAdminActivity extends AppCompatActivity {
                 if (compoundButton.isChecked()){
                     SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferences.edit();
-                    editor.putString("remember", "true");
+                    editor.putString("rememberAdmin", "true");
                     editor.apply();
                     Toast.makeText(getApplicationContext(), "Checked!", Toast.LENGTH_SHORT).show();
 
                 }else if (!compoundButton.isChecked()){
                     SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferences.edit();
-                    editor.putString("remember", "false");
+                    editor.putString("rememberAdmin", "false");
                     editor.apply();
                     Toast.makeText(getApplicationContext(), "Unchecked!", Toast.LENGTH_SHORT).show();
                 }

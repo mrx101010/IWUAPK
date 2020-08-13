@@ -17,8 +17,6 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MenuAdminActivity extends AppCompatActivity implements View.OnClickListener {
 
-//    FirebaseAuth firebaseAuth;
-//    FirebaseUser firebaseUser;
 
 
     @Override
@@ -28,8 +26,6 @@ public class MenuAdminActivity extends AppCompatActivity implements View.OnClick
         findViewById(R.id.ib_dosen).setOnClickListener(this);
         findViewById(R.id.ib_tambah_dosen).setOnClickListener(this);
         findViewById(R.id.ib_logout).setOnClickListener(this);
-//        firebaseAuth = FirebaseAuth.getInstance();
-//        firebaseUser = firebaseAuth.getCurrentUser();
 
     }
 
@@ -66,7 +62,7 @@ public class MenuAdminActivity extends AppCompatActivity implements View.OnClick
                     public void onClick(View view) {
                         SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
                         SharedPreferences.Editor editor = preferences.edit();
-                        editor.putString("remember", "false");
+                        editor.putString("rememberAdmin", "false");
                         editor.apply();
 
                         finish();

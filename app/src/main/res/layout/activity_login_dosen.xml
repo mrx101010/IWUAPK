@@ -14,6 +14,14 @@
         android:layout_marginTop="@dimen/_30sdp"
         android:alpha="0.3" />
 
+    <ProgressBar
+        android:id="@+id/pb_masuk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/_20sdp"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -83,14 +91,20 @@
         android:inputType="textPassword"
         android:layout_below="@+id/et_email" />
 
-    <Button
+        <CheckBox
+            android:id="@+id/cb_ingatsaya"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ingat saya"
+            android:layout_marginLeft="@dimen/_20sdp"/>
+
+        <Button
         android:id="@+id/btn_mulai"
         android:layout_width="@dimen/_250sdp"
         android:layout_height="@dimen/_50sdp"
         android:layout_gravity="center"
         android:background="@color/ungu"
         android:layout_marginStart="@dimen/_40sdp"
-        android:layout_marginTop="@dimen/_30sdp"
         android:foreground="?android:attr/selectableItemBackground"
         android:layout_marginEnd="@dimen/_40sdp"
         android:enabled="true"
@@ -98,14 +112,6 @@
         android:textStyle="bold"
         android:textColor="@color/putih" />
 
-
-        <ProgressBar
-            android:id="@+id/pb_masuk"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="gone"
-            android:layout_marginTop="@dimen/_20sdp"/>
 </LinearLayout>
     </LinearLayout>
 </FrameLayout>
