@@ -13,6 +13,17 @@
     <string name="tambah">Tambah</string>
     <string name="tambah_dosen">Tambah Dosen</string>
     <string name="title_activity_tambah_dosen">MainActivity</string>
+
+
+    <!-- String Data Spinner Mahasiswa -->
+
+    <array name="prodi">
+        <item>Teknik Informatika</item>
+        <item>Sistem Informasi</item>
+        <item>Desain Komunikasi Visual</item>
+        <item>Teknik Komputer Jaringan</item>
+    </array>
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>

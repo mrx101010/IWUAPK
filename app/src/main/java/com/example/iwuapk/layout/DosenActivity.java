@@ -37,7 +37,8 @@ public class DosenActivity extends AppCompatActivity {
     private ArrayList<Dosen> dosenArrayList;
     private DosenAdapter adapter;
 
-    private TextInputLayout edtNamaDosen;
+    private EditText edtNama_dosen;
+    private Button btnTambahDosen;
 
     private String[] tvNamaDosen = new String[]{"Arif Rachmat", "Arif Rachmat", "Dadang Suhendar", "Dendi Kusnaendi", "Gilang", "Erni Setiyani"};
 
@@ -105,18 +106,18 @@ public class DosenActivity extends AppCompatActivity {
         dialog.setView(dialogView);
         dialog.setCancelable(true);
 
-        final TextInputLayout edtNamaDosen = dialogView.findViewById(R.id.edt_add_tambahDosen);
+        final EditText edtNamaDosen = dialogView.findViewById(R.id.et_nama_dosen);
 
         dialog.setView(dialogView);
 
         // set button
+        final Button btnTambahDosen = dialogView.findViewById(R.id.btn_tambah_dosen);
 
-        dialog.setPositiveButton("TAMBAH", new DialogInterface.OnClickListener() {
+        btnTambahDosen.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int which) {
+            public void onClick(View view) {
 
-                //Validasi
-                if (TextUtils.isEmpty(edtNamaDosen.getEditText().getText().toString())){
+                if (TextUtils.isEmpty(edtNamaDosen.getText().toString())){
                     Toast.makeText(DosenActivity.this, "Masukan Nama Anda",Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -137,19 +138,50 @@ public class DosenActivity extends AppCompatActivity {
                     }
                 });
 
-                myDataDosen.child("Dosen").child(edtNamaDosen.getEditText().getText().toString()).child("Nama").setValue(edtNamaDosen.getEditText().getText().toString());
+                myDataDosen.child("Dosen").child(edtNamaDosen.getText().toString()).child("Nama").setValue(edtNamaDosen.getText().toString());
 
                 Toast.makeText(DosenActivity.this, "Data Telah Ditambahkan!", Toast.LENGTH_SHORT).show();
+
             }
         });
 
+//        dialog.setPositiveButton("TAMBAH", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialogInterface, int which) {
+//
+//                //Validasi
+//                if (TextUtils.isEmpty(edtNamaDosen.getText().toString())){
+//                    Toast.makeText(DosenActivity.this, "Masukan Nama Anda",Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//
+//                FirebaseDatabase database = FirebaseDatabase.getInstance();
+//
+//                DatabaseReference myDataDosen = database.getReference();
+//
+//                myDataDosen.addValueEventListener(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                        Object value = dataSnapshot.getValue();
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError databaseError) {
+//                        Toast.makeText(DosenActivity.this, "Failed to Read Value", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//
+//
+//            }
+//        });
 
-        dialog.setNegativeButton("BATAL", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
+
+//        dialog.setNegativeButton("BATAL", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                dialog.dismiss();
+//            }
+//        });
 
 
 

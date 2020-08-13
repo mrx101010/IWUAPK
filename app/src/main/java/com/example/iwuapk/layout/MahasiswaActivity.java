@@ -6,6 +6,8 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +34,7 @@ public class MahasiswaActivity extends AppCompatActivity {
     private RecyclerView MahasiswaRecyclerView;
     private ArrayList<Mahasiswa> mahasiswaArrayList;
     private MahasiswaAdapter adapter;
+
 
     private String[] tvNama_mhs = new String[]{"Arif Rachmat", "Arif Rachmat", "Dadang Suhendar", "Dendi Kusnaendi", "Gilang", "Erni Setiyani"};
     private String[] tvAsal_sklh = new String[]{"SMKN 4 BANDUNG", "SMKN 3 BANDUNG", "SMP BHAYANGKARI", "SD CIJERAH", "SMKN 4 BANDUNG", "SMKN 8 BANDUNG"};
@@ -79,6 +82,63 @@ public class MahasiswaActivity extends AppCompatActivity {
         View dialogView = inflater.inflate(R.layout.form_add_mahasiswa, null);
         dialog.setView(dialogView);
         dialog.setCancelable(true);
+
+        final EditText edtNamaMahasiswa = dialogView.findViewById(R.id.et_nama_mhs);
+        final EditText edtAsal = dialogView.findViewById(R.id.et_sekolah_mhs);
+        final Spinner  spinnerProdi = dialogView.findViewById(R.id.spinner_prodi);
+        final Button btnTambahMhs = dialogView.findViewById(R.id.btn_tambah_mahasiswa);
+
+        dialog.setView(dialogView);
+
+
+        //set Button & Validasi
+
+        btnTambahMhs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (TextUtils.isEmpty(edtNamaMahasiswa.getText().toString())){
+                    Toast.makeText(MahasiswaActivity.this, "Masukan Nama Anda", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(edtAsal.getText().toString())){
+                    Toast.makeText(MahasiswaActivity.this, "Masukan Asal Sekolah Anda", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(spinnerProdi.getSelectedItem().toString())){
+                    Toast.makeText(MahasiswaActivity.this, "Pilih Prodi Anda", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+                DatabaseReference myDataMahasiswa = database.getReference();
+
+                myDataMahasiswa.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        Object value = dataSnapshot.getValue();
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        Toast.makeText(MahasiswaActivity.this, "Failed to Read Value", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
+                myDataMahasiswa.child("Mahasiswa").child(edtNamaMahasiswa.getText().toString()).child("Nama").setValue(edtNamaMahasiswa.getText().toString());
+                myDataMahasiswa.child("Mahasiswa").child(edtAsal.getText().toString()).child("Asal Sekolah").setValue(edtAsal.getText().toString());
+                myDataMahasiswa.child("Mahasiswa").child(spinnerProdi.getSelectedItem().toString()).child("Prodi").setValue(spinnerProdi.getSelectedItem().toString());
+
+                Toast.makeText(MahasiswaActivity.this, "Data Mahasiswa Telah Ditambahkan!", Toast.LENGTH_SHORT).show();
+
+
+
+            }
+        });
 
         dialog.show();
     }

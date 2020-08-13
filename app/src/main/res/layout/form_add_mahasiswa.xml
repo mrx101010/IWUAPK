@@ -34,7 +34,7 @@
 
 
             <EditText
-                android:id="@+id/et_nama"
+                android:id="@+id/et_nama_mhs"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_40sdp"
                 android:background="@drawable/et_border"
@@ -52,7 +52,7 @@
 
 
             <EditText
-                android:id="@+id/et_sekolah"
+                android:id="@+id/et_sekolah_mhs"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_40sdp"
                 android:background="@drawable/et_border"
@@ -67,24 +67,34 @@
                 android:textAllCaps="true"
                 android:maxLines="1"
                 android:alpha="0.8" />
-
-
-            <EditText
-                android:id="@+id/et_prodi"
+            
+            <Spinner
+                android:id="@+id/spinner_prodi"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_40sdp"
-                android:background="@drawable/et_border"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:layout_gravity="center"
-                android:paddingLeft="@dimen/_10sdp"
-                android:hint="prodi"
-                android:textColorHint="@color/hitam"
-                android:inputType="text|textCapSentences"
-                android:textAllCaps="true"
-                android:maxLines="1"
-                android:alpha="0.8" />
+                android:entries="@array/prodi" />
+
+
+<!--            <EditText-->
+<!--                android:id="@+id/et_prodi"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/_40sdp"-->
+<!--                android:background="@drawable/et_border"-->
+<!--                android:layout_marginTop="@dimen/_15sdp"-->
+<!--                android:layout_marginStart="@dimen/_20sdp"-->
+<!--                android:layout_marginEnd="@dimen/_20sdp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:paddingLeft="@dimen/_10sdp"-->
+<!--                android:hint="prodi"-->
+<!--                android:textColorHint="@color/hitam"-->
+<!--                android:inputType="text|textCapSentences"-->
+<!--                android:textAllCaps="true"-->
+<!--                android:maxLines="1"-->
+<!--                android:alpha="0.8" />-->
 
             <Button
                 android:id="@+id/btn_tambah_mahasiswa"
