@@ -1,89 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/putih">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_top_tambahMahasiswa"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Tambah Mahasiswa"
-        android:textAlignment="center"
-        android:textColor="@color/hitam"
-        android:textSize="@dimen/_30ssp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edt_add_tambahMahasiswa"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_36sdp"
-        app:boxStrokeColor="@color/ungu"
-        android:hint="Nama"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_top_tambahMahasiswa">
+        <ImageView
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:background="@drawable/logo"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_100sdp"
+            android:alpha="0.1"/>
 
-        <com.google.android.material.textfield.TextInputEditText
-
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="@dimen/_300sdp"
+            android:orientation="vertical">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edt_add_tambahMahasiswa2"
-        style="@style/tst"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_36sdp"
-        app:boxStrokeColor="@color/ungu"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:hint="Asal sekolah"
-        app:layout_constraintTop_toBottomOf="@id/edt_add_tambahMahasiswa">
-
-        <com.google.android.material.textfield.TextInputEditText
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edt_add_tambahMahasiswa3"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_36sdp"
-        android:hint="Fakultas"
-        app:boxStrokeColor="@color/ungu"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edt_add_tambahMahasiswa2">
-
-        <com.google.android.material.textfield.TextInputEditText
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_40sdp"
-        android:background="@drawable/btn_purple"
-        android:backgroundTint="@color/ungu"
-        android:text="Tambah"
-        android:textColor="@color/putih"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edt_add_tambahMahasiswa3" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tambah Mahasiswa"
+                android:textSize="@dimen/_18ssp"
+                android:textColor="@color/ungu"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/_20sdp"/>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <EditText
+                android:id="@+id/et_nama"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/et_border"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:paddingLeft="@dimen/_10sdp"
+                android:hint="Nama mahasiswa"
+                android:textColorHint="@color/hitam"
+                android:inputType="text|textCapSentences"
+                android:textAllCaps="true"
+                android:maxLines="1"
+                android:alpha="0.8" />
+
+
+            <EditText
+                android:id="@+id/et_sekolah"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/et_border"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:paddingLeft="@dimen/_10sdp"
+                android:hint="Asal sekolah"
+                android:textColorHint="@color/hitam"
+                android:inputType="text|textCapSentences"
+                android:textAllCaps="true"
+                android:maxLines="1"
+                android:alpha="0.8" />
+
+
+            <EditText
+                android:id="@+id/et_prodi"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/et_border"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:paddingLeft="@dimen/_10sdp"
+                android:hint="prodi"
+                android:textColorHint="@color/hitam"
+                android:inputType="text|textCapSentences"
+                android:textAllCaps="true"
+                android:maxLines="1"
+                android:alpha="0.8" />
+
+            <Button
+                android:id="@+id/btn_tambah_mahasiswa"
+                android:layout_width="@dimen/_250sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_40sdp"
+                android:layout_marginTop="20dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_marginEnd="@dimen/_40sdp"
+                android:enabled="true"
+                android:text="Tambah mahasiswa"
+                android:textStyle="bold"
+                android:textColor="@color/putih"/>
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

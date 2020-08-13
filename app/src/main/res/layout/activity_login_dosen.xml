@@ -12,7 +12,7 @@
         android:background="@drawable/logo"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/_30sdp"
-        android:alpha="0.3" />
+        android:alpha="0.2" />
 
     <ProgressBar
         android:id="@+id/pb_masuk"
@@ -36,19 +36,12 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/halo"
+                android:text="LOGIN DOSEN"
+                android:gravity="center"
                 android:textSize="@dimen/_20ssp"
                 android:textColor="@color/ungu"
                 android:textStyle="bold"
                 android:layout_marginTop="@dimen/_55sdp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/selamat_datang"
-                android:textSize="@dimen/_15ssp"
-                android:textColor="@color/ungu"
-                android:textStyle="bold"/>
 
         </LinearLayout>
 
@@ -63,7 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
         android:background="@drawable/et_border"
-        android:layout_marginTop="@dimen/_100sdp"
+        android:layout_marginTop="@dimen/_90sdp"
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginEnd="@dimen/_20sdp"
         android:layout_gravity="center"

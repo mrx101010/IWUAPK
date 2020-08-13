@@ -69,7 +69,7 @@ public class LoginAdminActivity extends AppCompatActivity {
 
                 pbMasuk.setVisibility(View.VISIBLE);
 
-                if (username.equals("admin") && password.equals("123456")){
+                if (username.equals("adminiwu") && password.equals("iwupaskal179")){
                     pbMasuk.setVisibility(View.GONE);
                     Toast.makeText(getApplicationContext(), "Selamat datang, Admin!", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(), MenuAdminActivity.class);
