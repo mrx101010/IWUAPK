@@ -60,6 +60,7 @@ public class DosenActivity extends AppCompatActivity {
         databaseDosen.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                dosenArrayList.clear();
                 if (dataSnapshot.exists()) {
                     for (DataSnapshot dosenSnapshot : dataSnapshot.getChildren()) {
                         Dosen dosen = dosenSnapshot.getValue(Dosen.class);

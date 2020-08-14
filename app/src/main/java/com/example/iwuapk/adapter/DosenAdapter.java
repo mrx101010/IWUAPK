@@ -19,6 +19,8 @@ import java.util.ArrayList;
 
 public class DosenAdapter extends RecyclerView.Adapter<DosenAdapter.ViewHolder> {
 
+    public static final String DOSEN_ID = "dosenid";
+    public static final String DOSEN_NAME = "dosenname";
     private ArrayList<Dosen> dosenArrayList;
 
     public DosenAdapter(ArrayList<Dosen> dosenArrayList) {
@@ -41,8 +43,14 @@ public class DosenAdapter extends RecyclerView.Adapter<DosenAdapter.ViewHolder> 
         holder.cvItemDosen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Dosen dosen = dosenArrayList.get(position);
+
                 Context context = view.getContext();
+
                 Intent intent = new Intent(context, MahasiswaActivity.class);
+                intent.putExtra(DOSEN_ID, dosen.getId_dosen());
+                intent.putExtra(DOSEN_NAME, dosen.getNama_dosen());
+
                 context.startActivity(intent);
             }
         });

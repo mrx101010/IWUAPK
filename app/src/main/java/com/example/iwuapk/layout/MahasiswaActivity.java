@@ -1,5 +1,6 @@
 package com.example.iwuapk.layout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -16,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.iwuapk.R;
+import com.example.iwuapk.adapter.DosenAdapter;
 import com.example.iwuapk.adapter.MahasiswaAdapter;
 import com.example.iwuapk.model.Mahasiswa;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -39,13 +42,21 @@ public class MahasiswaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mahasiswa);
 
-        databaseMahasiswa = FirebaseDatabase.getInstance().getReference("mahasiswa");
 
         mahasiswaArrayList = new ArrayList<>();
 
         mahasiswaRecyclerView = findViewById(R.id.recyclerView_dataMahasiswa);
         mahasiswaRecyclerView.setHasFixedSize(true);
         mahasiswaRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        Intent intent = getIntent();
+
+        String id = intent.getStringExtra(DosenAdapter.DOSEN_ID);
+        String name = intent.getStringExtra(DosenAdapter.DOSEN_NAME);
+        databaseMahasiswa = FirebaseDatabase.getInstance().getReference("mahasiswa").child(id);
+
+        TextView dosenName = findViewById(R.id.tvJudul_Mahasiswa);
+        dosenName.setText(name);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -59,6 +70,7 @@ public class MahasiswaActivity extends AppCompatActivity {
         databaseMahasiswa.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                mahasiswaArrayList.clear();
                 if (dataSnapshot.exists()) {
                     for (DataSnapshot mahasiswaSnapshot : dataSnapshot.getChildren()) {
                         Mahasiswa mahasiswa = mahasiswaSnapshot.getValue(Mahasiswa.class);
