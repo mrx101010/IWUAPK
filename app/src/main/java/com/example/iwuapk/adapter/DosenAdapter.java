@@ -19,21 +19,19 @@ import java.util.ArrayList;
 
 public class DosenAdapter extends RecyclerView.Adapter<DosenAdapter.ViewHolder> {
 
-    private LayoutInflater inflater;
     private ArrayList<Dosen> dosenArrayList;
 
-    public DosenAdapter(Context ctx, ArrayList<Dosen> dosenArrayList) {
-        inflater = LayoutInflater.from(ctx);
+    public DosenAdapter(ArrayList<Dosen> dosenArrayList) {
         this.dosenArrayList = dosenArrayList;
     }
 
     @Override
     public DosenAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = inflater.inflate(R.layout.item_dosen, parent, false);
-        ViewHolder holder = new ViewHolder(view);
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_dosen, parent, false);
 
-        return holder;
+        return new ViewHolder(view);
     }
 
     @Override
