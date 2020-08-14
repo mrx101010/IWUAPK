@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_ItemMahasiswa"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_110sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/_5sdp"
+        app:cardBackgroundColor="#6A0066">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvNama_Mahasiwa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="Arif Rachmat"
+                android:textColor="#fff"
+                android:textSize="@dimen/_15ssp"
+                android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvAsal_sekolah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SMKN 4 BANDUNG"
+            android:layout_below="@id/tvNama_Mahasiwa"
+            android:textSize="@dimen/_15ssp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_5sdp"/>
+
+            <TextView
+                android:id="@+id/tvFalkultas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Teknik Informatika"
+                android:layout_below="@id/tvAsal_sekolah"
+                android:textSize="@dimen/_15ssp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/_5sdp"/>
+
+
+
+        </RelativeLayout>
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

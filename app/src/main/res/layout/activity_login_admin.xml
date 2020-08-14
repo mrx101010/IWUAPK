@@ -12,7 +12,16 @@
         android:background="@drawable/logo"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/_30sdp"
-        android:alpha="0.3" />
+        android:alpha="0.2" />
+
+    <ProgressBar
+        android:id="@+id/pb_masuk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/_20sdp"/>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,84 +37,74 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/halo"
+                android:text="LOGIN ADMIN"
                 android:textSize="@dimen/_20ssp"
                 android:textColor="@color/ungu"
                 android:textStyle="bold"
+                android:gravity="center"
                 android:layout_marginTop="@dimen/_55sdp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/selamat_datang_admin"
-                android:textSize="@dimen/_15ssp"
-                android:textColor="@color/ungu"
-                android:textStyle="bold"/>
-
         </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/et_email"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:background="@drawable/et_border"
-        android:layout_marginTop="@dimen/_100sdp"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
-        android:layout_gravity="center"
-        android:paddingLeft="@dimen/_10sdp"
-        android:hint="@string/email"
-        android:textColor="@color/hitam"
-        android:textColorHint="@color/hitam"
-        android:inputType="textEmailAddress"
-        android:maxLines="1" />
+            <EditText
+                android:id="@+id/et_username"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/et_border"
+                android:layout_marginTop="@dimen/_90sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:paddingLeft="@dimen/_10sdp"
+                android:hint="@string/username"
+                android:textColor="@color/hitam"
+                android:textColorHint="@color/hitam"
+                android:inputType="textEmailAddress"
+                android:maxLines="1" />
 
-    <EditText
-        android:id="@+id/et_password"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:background="@drawable/et_border"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_15sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
-        android:layout_gravity="center"
-        android:paddingLeft="@dimen/_10sdp"
-        android:hint="@string/password"
-        android:maxLines="1"
-        android:textColor="@color/hitam"
-        android:textColorHint="@color/hitam"
-        android:inputType="textPassword"
-        android:layout_below="@+id/et_email" />
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/et_border"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:paddingLeft="@dimen/_10sdp"
+                android:hint="@string/password"
+                android:maxLines="1"
+                android:textColor="@color/hitam"
+                android:textColorHint="@color/hitam"
+                android:inputType="textPassword"
+                android:layout_below="@+id/et_email" />
 
-    <Button
-        android:id="@+id/btn_mulai"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@color/ungu"
-        android:layout_marginStart="@dimen/_40sdp"
-        android:layout_marginTop="@dimen/_30sdp"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:layout_marginEnd="@dimen/_40sdp"
-        android:enabled="true"
-        android:text="@string/masuk"
-        android:textStyle="bold"
-        android:textColor="@color/putih" />
+            <CheckBox
+                android:id="@+id/cb_ingatsaya"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ingat saya"
+                android:layout_marginLeft="@dimen/_20sdp"/>
 
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="@dimen/_250sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center"
+                android:background="@color/ungu"
+                android:layout_marginStart="@dimen/_40sdp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_marginEnd="@dimen/_40sdp"
+                android:enabled="true"
+                android:text="@string/masuk"
+                android:textStyle="bold"
+                android:textColor="@color/putih" />
 
-        <ProgressBar
-            android:id="@+id/pb_masuk"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="gone"
-            android:layout_marginTop="@dimen/_20sdp"/>
-</LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 </FrameLayout>

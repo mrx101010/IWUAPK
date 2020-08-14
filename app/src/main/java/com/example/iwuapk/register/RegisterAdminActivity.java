@@ -9,12 +9,10 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.iwuapk.R;
 import com.example.iwuapk.layout.MenuAdminActivity;
-import com.example.iwuapk.login.LoginAdminActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -30,7 +28,7 @@ public class RegisterAdminActivity extends AppCompatActivity implements View.OnC
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_admin);
+        setContentView(R.layout.activity_tambah_dosen);
         etEmail = (EditText) findViewById(R.id.et_email);
         etPassword = (EditText) findViewById(R.id.et_password);
         pbTambah = (ProgressBar) findViewById(R.id.pb_tambah);

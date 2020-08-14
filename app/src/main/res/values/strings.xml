@@ -12,5 +12,26 @@
     <string name="selamat_datang">Selamat datang!</string>
     <string name="tambah">Tambah</string>
     <string name="tambah_dosen">Tambah Dosen</string>
-    <string name="tambah_admin">Tambah Admin</string>
+    <string name="title_activity_tambah_dosen">MainActivity</string>
+
+
+    <!-- String Data Spinner Mahasiswa -->
+
+    <array name="prodi">
+        <item>Teknik Informatika</item>
+        <item>Sistem Informasi</item>
+        <item>Desain Komunikasi Visual</item>
+        <item>Teknik Komputer Jaringan</item>
+    </array>
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_tambah_mahasiswa">MainActivity</string>
+    <string name="username">Username</string>
 </resources>

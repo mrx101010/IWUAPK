@@ -3,8 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/putih"
-    android:orientation="vertical">
+    android:background="@color/putih">
 
     <ImageView
         android:layout_width="@dimen/_300sdp"
@@ -13,6 +12,13 @@
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/_30sdp"
         android:alpha="0.3" />
+
+    <ProgressBar
+        android:id="@+id/pb_tambah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,20 +34,12 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/halo"
-                android:textSize="@dimen/_20ssp"
+                android:text="@string/tambah_dosen"
+                android:textSize="@dimen/_30ssp"
                 android:textColor="@color/ungu"
                 android:textStyle="bold"
+                android:gravity="center"
                 android:layout_marginTop="@dimen/_55sdp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/selamat_datang"
-                android:textSize="@dimen/_15ssp"
-                android:textColor="@color/ungu"
-                android:textStyle="bold"/>
-
         </LinearLayout>
 
 
@@ -84,17 +82,17 @@
                 android:layout_below="@+id/et_email" />
 
             <Button
-                android:id="@+id/btn_login"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:id="@+id/btn_tambah"
+                android:layout_width="@dimen/_250sdp"
+                android:layout_height="@dimen/_50sdp"
                 android:layout_gravity="center"
                 android:background="@color/ungu"
                 android:layout_marginStart="@dimen/_40sdp"
-                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_marginTop="30dp"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:layout_marginEnd="@dimen/_40sdp"
                 android:enabled="true"
-                android:text="@string/masuk"
+                android:text="@string/tambah"
                 android:textStyle="bold"
                 android:textColor="@color/putih" />
 
