@@ -1,6 +1,5 @@
 package com.example.iwuapk.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,29 +15,28 @@ import java.util.ArrayList;
 
 public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaAdapter.MyViewHolder> {
 
-    private LayoutInflater inflater;
     private ArrayList<Mahasiswa> mahasiswaArrayList;
 
-    public MahasiswaAdapter(Context ctx, ArrayList<Mahasiswa>mahasiswaArrayList){
-        inflater = LayoutInflater.from(ctx);
+    public MahasiswaAdapter(ArrayList<Mahasiswa> mahasiswaArrayList) {
         this.mahasiswaArrayList = mahasiswaArrayList;
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= inflater.inflate(R.layout.item_mahasiswa,parent,false);
-        MyViewHolder holder = new MyViewHolder(view);
-
-        return holder;
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_mahasiswa, parent, false);
+        return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        holder.tvNama_mhs.setText(mahasiswaArrayList.get(position).getNamaMahasiswa());
-        holder.tvAsalSekolah_mhs.setText(mahasiswaArrayList.get(position).getAsalSekolah());
-        holder.tvFakultas_mhs.setText(mahasiswaArrayList.get(position).getFakultas());
+        Mahasiswa mahasiswa = mahasiswaArrayList.get(position);
+
+        holder.tvNama_mhs.setText(mahasiswa.getNamaMahasiswa());
+        holder.tvAsalSekolah_mhs.setText(mahasiswa.getAsalSekolah());
+        holder.tvFakultas_mhs.setText(mahasiswa.getProdi());
 
     }
 

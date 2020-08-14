@@ -1,9 +1,21 @@
 package com.example.iwuapk.model;
 
 public class Mahasiswa {
+    private String idMahasiswa;
     private String namaMahasiswa;
     private String asalSekolah;
-    private String fakultas;
+    private String prodi;
+
+    public Mahasiswa() {
+
+    }
+
+    public Mahasiswa(String idMahasiswa, String namaMahasiswa, String asalSekolah, String prodi) {
+        this.idMahasiswa = idMahasiswa;
+        this.namaMahasiswa = namaMahasiswa;
+        this.asalSekolah = asalSekolah;
+        this.prodi = prodi;
+    }
 
     public String getNamaMahasiswa() {
         return namaMahasiswa;
@@ -21,11 +33,11 @@ public class Mahasiswa {
         this.asalSekolah = asalSekolah;
     }
 
-    public String getFakultas() {
-        return fakultas;
+    public String getProdi() {
+        return prodi;
     }
 
-    public void setFakultas(String fakultas) {
-        this.fakultas = fakultas;
+    public void setProdi(String prodi) {
+        this.prodi = prodi;
     }
 }
