@@ -108,7 +108,7 @@ public class DosenActivity extends AppCompatActivity {
 
                 Dosen dosen = new Dosen(id, nama);
 
-                databaseDosen.child("id").setValue(dosen);
+                databaseDosen.child(id).setValue(dosen);
                 Toast.makeText(DosenActivity.this, "Data Telah Ditambahkan!", Toast.LENGTH_SHORT).show();
 
             }
