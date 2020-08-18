@@ -11,6 +11,8 @@
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
+        android:foreground="?android:selectableItemBackground"
+        android:clickable="true"
         app:cardCornerRadius="@dimen/_5sdp"
         app:cardBackgroundColor="#6A0066">
 
@@ -23,9 +25,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_11sdp"
                 android:text="Arif Rachmat"
-                android:textColor="#fff"
+                android:textColor="@color/putih"
                 android:textSize="@dimen/_15ssp"
                 android:textStyle="bold" />
 
@@ -37,9 +39,9 @@
             android:layout_below="@id/tvNama_Mahasiwa"
             android:textSize="@dimen/_15ssp"
             android:layout_marginLeft="@dimen/_10sdp"
-            android:textColor="#fff"
+            android:textColor="@color/putih"
             android:textStyle="bold"
-            android:layout_marginTop="@dimen/_5sdp"/>
+            android:layout_marginTop="@dimen/_15sdp"/>
 
             <TextView
                 android:id="@+id/tvFalkultas"
@@ -49,9 +51,9 @@
                 android:layout_below="@id/tvAsal_sekolah"
                 android:textSize="@dimen/_15ssp"
                 android:layout_marginLeft="@dimen/_10sdp"
-                android:textColor="#fff"
+                android:textColor="@color/putih"
                 android:textStyle="bold"
-                android:layout_marginTop="@dimen/_5sdp"/>
+                android:layout_marginTop="@dimen/_15sdp"/>
 
 
 

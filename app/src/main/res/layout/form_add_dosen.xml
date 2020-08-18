@@ -45,7 +45,7 @@
             android:paddingLeft="@dimen/_10sdp"
             android:hint="Nama dosen"
             android:textColorHint="@color/hitam"
-            android:inputType="text|textCapSentences"
+            android:inputType="text|textCapCharacters"
             android:textAllCaps="true"
             android:maxLines="1"
             android:alpha="0.8" />
