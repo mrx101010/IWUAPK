@@ -42,6 +42,7 @@ public class MahasiswaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mahasiswa);
 
+
         mahasiswaArrayList = new ArrayList<>();
 
         mahasiswaRecyclerView = findViewById(R.id.recyclerView_dataMahasiswa);
@@ -64,6 +65,7 @@ public class MahasiswaActivity extends AppCompatActivity {
                 showDialogForm();
             }
         });
+
 
         databaseMahasiswa.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -100,6 +102,8 @@ public class MahasiswaActivity extends AppCompatActivity {
 
         dialog.setView(dialogView);
 
+        final AlertDialog show = dialog.show();
+
 
         //set Button & Validasi
 
@@ -107,17 +111,20 @@ public class MahasiswaActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (TextUtils.isEmpty(edtNamaMahasiswa.getText().toString())) {
-                    Toast.makeText(MahasiswaActivity.this, "Masukan Nama Anda", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MahasiswaActivity.this, "Masukan Nama Anda",
+                            Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if (TextUtils.isEmpty(edtAsal.getText().toString())) {
-                    Toast.makeText(MahasiswaActivity.this, "Masukan Asal Sekolah Anda", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MahasiswaActivity.this, "Masukan Asal Sekolah Anda",
+                            Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if (TextUtils.isEmpty(spinnerProdi.getSelectedItem().toString())) {
-                    Toast.makeText(MahasiswaActivity.this, "Pilih Prodi Anda", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MahasiswaActivity.this, "Pilih Prodi Anda",
+                            Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -132,11 +139,11 @@ public class MahasiswaActivity extends AppCompatActivity {
 
                 databaseMahasiswa.child(id).setValue(mahasiswa);
 
-                Toast.makeText(MahasiswaActivity.this, "Data berhasil dimasukan", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MahasiswaActivity.this, "Data berhasil dimasukan",
+                        Toast.LENGTH_SHORT).show();
 
+                show.dismiss();
             }
         });
-        dialog.show();
-        dialog.setCancelable(true);
     }
 }
