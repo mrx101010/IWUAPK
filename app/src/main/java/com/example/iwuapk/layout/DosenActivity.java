@@ -13,6 +13,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.iwuapk.R;
 import com.example.iwuapk.adapter.DosenAdapter;
@@ -33,6 +34,8 @@ public class DosenActivity extends AppCompatActivity {
     private DosenAdapter adapter;
     private DatabaseReference databaseDosen;
 
+    private SwipeRefreshLayout swipeRefreshLayout;
+
     private EditText edtNama_dosen;
     private Button btnTambahDosen;
 
@@ -40,6 +43,17 @@ public class DosenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dosen);
+
+// Refresh Swipe
+        swipeRefreshLayout = findViewById(R.id.swipeRefresh);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+//                Function
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
+
 
         databaseDosen = FirebaseDatabase.getInstance().getReference("dosen");
         dosenArrayList = new ArrayList<>();
