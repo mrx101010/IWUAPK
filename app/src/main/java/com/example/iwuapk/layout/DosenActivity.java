@@ -111,7 +111,6 @@ public class DosenActivity extends AppCompatActivity {
 
                 databaseDosen.child(id).setValue(dosen);
                 Toast.makeText(DosenActivity.this, "Data Telah Ditambahkan!", Toast.LENGTH_SHORT).show();
-
             }
         });
         dialog.show();

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">iwuAPK</string>
+    <string name="app_name">UWI</string>
     <string name="admin">Admin</string>
     <string name="dosen">Dosen</string>
     <string name="bantuan">Bantuan</string>
@@ -18,10 +18,17 @@
     <!-- String Data Spinner Mahasiswa -->
 
     <array name="prodi">
+        <item>Ilmu Komunikasi</item>
+        <item>Hubungan International</item>
+        <item>Ilmu Politik</item>
+        <item>Administrasi bisnis</item>
+        <item>Matematika</item>
+        <item>Desain Interior</item>
         <item>Teknik Informatika</item>
-        <item>Sistem Informasi</item>
         <item>Desain Komunikasi Visual</item>
-        <item>Teknik Komputer Jaringan</item>
+        <item>Biologi</item>
+        <item>Kimia</item>
+        <item>Fisika</item>
     </array>
 
     <!-- Strings used for fragments for navigation -->

@@ -42,7 +42,6 @@ public class MahasiswaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mahasiswa);
 
-
         mahasiswaArrayList = new ArrayList<>();
 
         mahasiswaRecyclerView = findViewById(R.id.recyclerView_dataMahasiswa);
@@ -65,7 +64,6 @@ public class MahasiswaActivity extends AppCompatActivity {
                 showDialogForm();
             }
         });
-
 
         databaseMahasiswa.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -135,8 +133,10 @@ public class MahasiswaActivity extends AppCompatActivity {
                 databaseMahasiswa.child(id).setValue(mahasiswa);
 
                 Toast.makeText(MahasiswaActivity.this, "Data berhasil dimasukan", Toast.LENGTH_SHORT).show();
+
             }
         });
-    dialog.show();
+        dialog.show();
+        dialog.setCancelable(true);
     }
 }
