@@ -107,7 +107,6 @@ public class DosenActivity extends AppCompatActivity {
                 String nama = edtNamaDosen.getText().toString().trim();
 
                 String id = databaseDosen.push().getKey();
-
                 Dosen dosen = new Dosen(id, nama);
 
                 databaseDosen.child(id).setValue(dosen);
