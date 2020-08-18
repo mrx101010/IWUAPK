@@ -44,17 +44,8 @@ public class DosenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dosen);
 
-// Refresh Swipe
+
         swipeRefreshLayout = findViewById(R.id.swipeRefresh);
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-//                Function
-                swipeRefreshLayout.setRefreshing(false);
-            }
-        });
-
-
         databaseDosen = FirebaseDatabase.getInstance().getReference("dosen");
         dosenArrayList = new ArrayList<>();
 
@@ -71,27 +62,15 @@ public class DosenActivity extends AppCompatActivity {
             }
         });
 
-        databaseDosen.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                dosenArrayList.clear();
-                if (dataSnapshot.exists()) {
-                    for (DataSnapshot dosenSnapshot : dataSnapshot.getChildren()) {
-                        Dosen dosen = dosenSnapshot.getValue(Dosen.class);
-                        dosenArrayList.add(dosen);
-                    }
-                    adapter = new DosenAdapter(dosenArrayList);
-                    DosenRecyclerView.setAdapter(adapter);
-                }
-            }
+        loadRecyclerViewData();
 
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
+            public void onRefresh() {
+                swipeRefreshLayout.setRefreshing(false);
+                loadRecyclerViewData();
             }
         });
-
-
     }
 
     private void showDialogForm() {
@@ -128,6 +107,28 @@ public class DosenActivity extends AppCompatActivity {
                 Toast.makeText(DosenActivity.this, "Data Telah Ditambahkan!", Toast.LENGTH_SHORT).show();
 
                 show.dismiss();
+            }
+        });
+    }
+
+    private void loadRecyclerViewData(){
+        databaseDosen.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                dosenArrayList.clear();
+                if (dataSnapshot.exists()) {
+                    for (DataSnapshot dosenSnapshot : dataSnapshot.getChildren()) {
+                        Dosen dosen = dosenSnapshot.getValue(Dosen.class);
+                        dosenArrayList.add(dosen);
+                    }
+                    adapter = new DosenAdapter(dosenArrayList);
+                    DosenRecyclerView.setAdapter(adapter);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
     }

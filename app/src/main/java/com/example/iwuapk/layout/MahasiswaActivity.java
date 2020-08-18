@@ -44,18 +44,6 @@ public class MahasiswaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mahasiswa);
 
-        // Refresh Swipe
-        swipeRefreshLayout = findViewById(R.id.swipeRefresh);
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-//                Function
-                swipeRefreshLayout.setRefreshing(false);
-            }
-        });
-
-
-
         mahasiswaArrayList = new ArrayList<>();
 
         mahasiswaRecyclerView = findViewById(R.id.recyclerView_dataMahasiswa);
@@ -79,26 +67,19 @@ public class MahasiswaActivity extends AppCompatActivity {
             }
         });
 
+        loadRecyclerViewData();
 
-        databaseMahasiswa.addListenerForSingleValueEvent(new ValueEventListener() {
+        swipeRefreshLayout = findViewById(R.id.swipeRefresh);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                mahasiswaArrayList.clear();
-                if (dataSnapshot.exists()) {
-                    for (DataSnapshot mahasiswaSnapshot : dataSnapshot.getChildren()) {
-                        Mahasiswa mahasiswa = mahasiswaSnapshot.getValue(Mahasiswa.class);
-                        mahasiswaArrayList.add(mahasiswa);
-                    }
-                    adapter = new MahasiswaAdapter(mahasiswaArrayList);
-                    mahasiswaRecyclerView.setAdapter(adapter);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
+            public void onRefresh() {
+//                Function
+                swipeRefreshLayout.setRefreshing(false);
+                loadRecyclerViewData();
             }
         });
+
+
     }
 
     private void showDialogForm() {
@@ -156,6 +137,28 @@ public class MahasiswaActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
 
                 show.dismiss();
+            }
+        });
+    }
+
+    private void loadRecyclerViewData() {
+        databaseMahasiswa.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                mahasiswaArrayList.clear();
+                if (dataSnapshot.exists()) {
+                    for (DataSnapshot mahasiswaSnapshot : dataSnapshot.getChildren()) {
+                        Mahasiswa mahasiswa = mahasiswaSnapshot.getValue(Mahasiswa.class);
+                        mahasiswaArrayList.add(mahasiswa);
+                    }
+                    adapter = new MahasiswaAdapter(mahasiswaArrayList);
+                    mahasiswaRecyclerView.setAdapter(adapter);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
     }
