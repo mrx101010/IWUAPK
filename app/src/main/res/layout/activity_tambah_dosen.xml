@@ -34,7 +34,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/tambah_dosen"
+                android:text="@string/daftar_dosen"
                 android:textSize="@dimen/_30ssp"
                 android:textColor="@color/ungu"
                 android:textStyle="bold"
@@ -92,7 +92,7 @@
                 android:foreground="?android:attr/selectableItemBackground"
                 android:layout_marginEnd="@dimen/_40sdp"
                 android:enabled="true"
-                android:text="@string/tambah"
+                android:text="@string/daftar"
                 android:textStyle="bold"
                 android:textColor="@color/putih" />
 

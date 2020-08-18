@@ -1,5 +1,6 @@
 package com.example.iwuapk.layout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -83,7 +84,7 @@ public class DosenActivity extends AppCompatActivity {
     private void showDialogForm() {
         final AlertDialog.Builder dialog = new AlertDialog.Builder(DosenActivity.this);
         LayoutInflater inflater = getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.form_add_dosen, null);
+        final View dialogView = inflater.inflate(R.layout.form_add_dosen, null);
         dialog.setView(dialogView);
         dialog.setCancelable(true);
 

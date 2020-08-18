@@ -36,8 +36,10 @@ public class MenuUserActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.ib_dosen:
-                Intent dosen = new Intent(getApplicationContext(), DosenActivity.class);
+                Intent dosen = new Intent(getApplicationContext(), DosenUserActivity.class);
                 startActivity(dosen);
+                break;
+
             case R.id.ib_logout:
                 final AlertDialog dialog = new AlertDialog.Builder(this)
                         .setTitle("Perhatian!")

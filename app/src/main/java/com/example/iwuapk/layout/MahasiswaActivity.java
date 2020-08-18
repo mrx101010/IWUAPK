@@ -137,7 +137,6 @@ public class MahasiswaActivity extends AppCompatActivity {
                 Toast.makeText(MahasiswaActivity.this, "Data berhasil dimasukan", Toast.LENGTH_SHORT).show();
             }
         });
-
-        dialog.show();
+    dialog.show();
     }
 }

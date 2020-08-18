@@ -34,4 +34,6 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_tambah_mahasiswa">MainActivity</string>
     <string name="username">Username</string>
+    <string name="daftar">Daftar</string>
+    <string name="daftar_dosen">Daftar Dosen</string>
 </resources>
