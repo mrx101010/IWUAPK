@@ -1,6 +1,5 @@
 package com.example.iwuapk.layout;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -82,23 +81,25 @@ public class DosenActivity extends AppCompatActivity {
     }
 
     private void showDialogForm() {
-        final AlertDialog.Builder dialog = new AlertDialog.Builder(DosenActivity.this);
+        AlertDialog.Builder dialog = new AlertDialog.Builder(DosenActivity.this);
         LayoutInflater inflater = getLayoutInflater();
-        final View dialogView = inflater.inflate(R.layout.form_add_dosen, null);
+        View dialogView = inflater.inflate(R.layout.form_add_dosen, null);
         dialog.setView(dialogView);
         dialog.setCancelable(true);
+
 
         final EditText edtNamaDosen = dialogView.findViewById(R.id.et_nama_dosen);
 
         dialog.setView(dialogView);
 
+        final AlertDialog show = dialog.show();
+
         // set button
-        final Button btnTambahDosen = dialogView.findViewById(R.id.btn_tambah_dosen);
+        Button btnTambahDosen = dialogView.findViewById(R.id.btn_tambah_dosen);
 
         btnTambahDosen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 if (TextUtils.isEmpty(edtNamaDosen.getText().toString())) {
                     Toast.makeText(DosenActivity.this, "Masukan Nama Anda", Toast.LENGTH_SHORT).show();
                     return;
@@ -112,8 +113,8 @@ public class DosenActivity extends AppCompatActivity {
                 databaseDosen.child(id).setValue(dosen);
                 Toast.makeText(DosenActivity.this, "Data Telah Ditambahkan!", Toast.LENGTH_SHORT).show();
 
+                show.dismiss();
             }
         });
-        dialog.show();
     }
 }
