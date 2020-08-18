@@ -30,7 +30,7 @@
                 android:text="Mahasiswa"
                 android:layout_marginTop="@dimen/_30sdp"
                 android:layout_centerHorizontal="true"
-                android:textSize="@dimen/_25ssp"
+                android:textSize="@dimen/_20ssp"
                 android:textColor="#000"
                 android:textStyle="bold"/>
 
