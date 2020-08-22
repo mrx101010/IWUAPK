@@ -32,7 +32,7 @@ public class DosenUserAdapter extends RecyclerView.Adapter<DosenUserAdapter.View
     public DosenUserAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_dosen, parent, false);
+                .inflate(R.layout.item_dosen_user, parent, false);
 
         return new DosenUserAdapter.ViewHolder(view);
     }

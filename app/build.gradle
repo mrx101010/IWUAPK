@@ -2,6 +2,19 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 
 android {
+
+    signingConfigs {
+        config {
+            storeFile file('E:\\International Women\'s University\\Android\\app\\iwuapp\\KeyStore\\KeyStoreAppUWI.jks')
+            storePassword 'rrdarmawan11'
+            keyAlias 'KeyStoreAppUWI'
+            keyPassword 'rrdarmawan11'
+        }
+    }
+    lintOptions {
+        checkReleaseBuilds false
+    }
+
     compileSdkVersion 30
     buildToolsVersion "30.0.1"
 
@@ -13,6 +26,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.config
     }
 
     buildTypes {

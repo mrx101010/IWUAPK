@@ -7,7 +7,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_itemDosen"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_50sdp"
+        android:layout_height="@dimen/_190sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
@@ -22,11 +22,56 @@
             android:layout_height="wrap_content"
             android:text="Arif Rachmat"
             android:textSize="@dimen/_15ssp"
-            android:textColor="#fff"
-            android:layout_marginTop="@dimen/_15sdp"
+            android:textColor="@color/putih"
+            android:layout_marginTop="@dimen/_35sdp"
             android:textStyle="bold"
             android:layout_marginLeft="@dimen/_10sdp" />
 
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_btn_update"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:foreground="?android:selectableItemBackground"
+            android:clickable="true"
+            android:backgroundTint="@color/hijau"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_80sdp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Update"
+                android:textColor="@color/putih"
+                android:textStyle="bold"
+                android:textSize="@dimen/_15ssp"
+                android:gravity="center"/>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_btn_delete"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:foreground="?android:selectableItemBackground"
+            android:clickable="true"
+            android:backgroundTint="@color/merah"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_130sdp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Hapus"
+                android:textColor="@color/putih"
+                android:textStyle="bold"
+                android:textSize="@dimen/_15ssp"
+                android:gravity="center"/>
+
+        </androidx.cardview.widget.CardView>
 
 
 
