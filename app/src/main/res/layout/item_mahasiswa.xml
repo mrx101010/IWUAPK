@@ -7,7 +7,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_ItemMahasiswa"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_110sdp"
+        android:layout_height="@dimen/_250sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
@@ -54,14 +54,53 @@
                 android:textColor="@color/putih"
                 android:textStyle="bold"
                 android:layout_marginTop="@dimen/_15sdp"/>
-
-
-
         </RelativeLayout>
 
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_btn_update"
+            android:layout_width="match_parent"
+            android:layout_height="66dp"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_125sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:backgroundTint="@color/hijau"
+            android:clickable="true"
+            android:foreground="?android:selectableItemBackground">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Update"
+                android:textColor="@color/putih"
+                android:textSize="@dimen/_15ssp"
+                android:textStyle="bold" />
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_btn_delete"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:foreground="?android:selectableItemBackground"
+            android:clickable="true"
+            android:backgroundTint="@color/merah"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_175sdp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Hapus"
+                android:textColor="@color/putih"
+                android:textStyle="bold"
+                android:textSize="@dimen/_15ssp"
+                android:gravity="center"/>
+
+        </androidx.cardview.widget.CardView>
 
     </androidx.cardview.widget.CardView>
-
 </RelativeLayout>

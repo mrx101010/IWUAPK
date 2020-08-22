@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.example.iwuapk.R;
 import com.example.iwuapk.adapter.DosenUserAdapter;
 import com.example.iwuapk.adapter.MahasiswaAdapter;
+import com.example.iwuapk.adapter.MahasiswaUserAdapter;
 import com.example.iwuapk.model.Mahasiswa;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
@@ -36,7 +37,7 @@ public class MahasiswaUserActivity extends AppCompatActivity {
 
     private RecyclerView mahasiswaRecyclerView;
     private ArrayList<Mahasiswa> mahasiswaArrayList;
-    private MahasiswaAdapter adapter;
+    private MahasiswaUserAdapter adapter;
     private DatabaseReference databaseMahasiswa;
 
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -92,7 +93,7 @@ public class MahasiswaUserActivity extends AppCompatActivity {
                         Mahasiswa mahasiswa = mahasiswaSnapshot.getValue(Mahasiswa.class);
                         mahasiswaArrayList.add(mahasiswa);
                     }
-                    adapter = new MahasiswaAdapter(mahasiswaArrayList);
+                    adapter = new MahasiswaUserAdapter(mahasiswaArrayList);
                     mahasiswaRecyclerView.setAdapter(adapter);
                 }
             }
