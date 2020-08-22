@@ -15,6 +15,8 @@ import java.util.ArrayList;
 
 public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaAdapter.MyViewHolder> {
 
+
+
     private ArrayList<Mahasiswa> mahasiswaArrayList;
 
     public MahasiswaAdapter(ArrayList<Mahasiswa> mahasiswaArrayList) {

@@ -46,7 +46,9 @@ public class MahasiswaActivity extends AppCompatActivity {
 
         mahasiswaArrayList = new ArrayList<>();
 
-        mahasiswaRecyclerView = findViewById(R.id.recyclerView_dataMahasiswa);
+        mahasiswaRecyclerView = (RecyclerView)findViewById(R.id.recyclerView_dataMahasiswa);
+
+//        mahasiswaRecyclerView = findViewById(R.id.recyclerView_dataMahasiswa);
         mahasiswaRecyclerView.setHasFixedSize(true);
         mahasiswaRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -69,6 +71,7 @@ public class MahasiswaActivity extends AppCompatActivity {
 
         loadRecyclerViewData();
 
+
         swipeRefreshLayout = findViewById(R.id.swipeRefresh);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -80,8 +83,8 @@ public class MahasiswaActivity extends AppCompatActivity {
         });
 
 
-    }
 
+}
     private void showDialogForm() {
         final AlertDialog.Builder dialog = new AlertDialog.Builder(MahasiswaActivity.this);
         LayoutInflater inflater = getLayoutInflater();
@@ -161,5 +164,28 @@ public class MahasiswaActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void showUpdateDialog(String idMhs, String namaMhs, String asalMhs){
+
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+
+        LayoutInflater inflater = getLayoutInflater();
+
+        final View dialogView = inflater.inflate(R.layout.activity_update_mahasiswa,null);
+
+        dialogBuilder.setView(dialogView);
+
+        final EditText editTextNamaMhs = (EditText) dialogView.findViewById(R.id.et_update_name_mhs);
+        final EditText editTextAsalMhs = (EditText) dialogView.findViewById(R.id.et_update_sekolah_mhs);
+        final Spinner spinnerProdiMhs = (Spinner) dialogView.findViewById(R.id.spinner_update_prodi);
+        final Button buttonUpdateMhs = (Button) dialogView.findViewById(R.id.btn_update_mahasiswa);
+
+        dialogBuilder.setTitle("Update Data Mahasiswa"+idMhs);
+
+        AlertDialog alertDialog = dialogBuilder.create();
+        alertDialog.show();
+
+
     }
 }
