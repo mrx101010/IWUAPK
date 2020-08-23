@@ -13,10 +13,8 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.iwuapk.R;
-import com.example.iwuapk.layout.DosenActivity;
 import com.example.iwuapk.layout.MahasiswaActivity;
 import com.example.iwuapk.model.Dosen;
-import com.example.iwuapk.model.Mahasiswa;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -63,6 +61,17 @@ public class DosenAdapter extends RecyclerView.Adapter<DosenAdapter.ViewHolder> 
         holder.cvBtnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Dosen dosen = dosenArrayList.get(position);
+
+                Context context = view.getContext();
+
+                DatabaseReference drDosen = FirebaseDatabase.getInstance()
+                        .getReference("dosen").child(dosen.getId_dosen());
+                DatabaseReference drMahasiswa = FirebaseDatabase.getInstance()
+                        .getReference("mahasiswa").child(dosen.getId_dosen());
+                drDosen.removeValue();
+                drMahasiswa.removeValue();
+                Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
             }
         });
 

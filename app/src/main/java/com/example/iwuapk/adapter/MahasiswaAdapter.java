@@ -12,7 +12,6 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.iwuapk.R;
-import com.example.iwuapk.model.Dosen;
 import com.example.iwuapk.model.Mahasiswa;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -22,9 +21,11 @@ import java.util.ArrayList;
 public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaAdapter.MyViewHolder> {
 
     private ArrayList<Mahasiswa> mahasiswaArrayList;
+    private String id;
 
-    public MahasiswaAdapter(ArrayList<Mahasiswa> mahasiswaArrayList) {
+    public MahasiswaAdapter(ArrayList<Mahasiswa> mahasiswaArrayList, String id) {
         this.mahasiswaArrayList = mahasiswaArrayList;
+        this.id = id;
     }
 
     @NonNull
@@ -38,7 +39,7 @@ public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaAdapter.MyVi
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
 
-        final Mahasiswa mahasiswa = mahasiswaArrayList.get(position);
+        Mahasiswa mahasiswa = mahasiswaArrayList.get(position);
 
         holder.tvNama_mhs.setText(mahasiswa.getNamaMahasiswa());
         holder.tvAsalSekolah_mhs.setText(mahasiswa.getAsalSekolah());
@@ -48,15 +49,16 @@ public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaAdapter.MyVi
             @Override
             public void onClick(View view) {
                 Mahasiswa mahasiswa1 = mahasiswaArrayList.get(position);
-
                 Context context = view.getContext();
 
-                DatabaseReference drMahasiswa = FirebaseDatabase.getInstance().getReference("mahasiswa").child((mahasiswa1.getNamaMahasiswa()));
+                DatabaseReference drMahasiswa = FirebaseDatabase.getInstance()
+                        .getReference("mahasiswa")
+                        .child(id)
+                        .child(mahasiswa1.getIdMahasiswa());
                 drMahasiswa.removeValue();
                 Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
             }
         });
-
 
 
     }
