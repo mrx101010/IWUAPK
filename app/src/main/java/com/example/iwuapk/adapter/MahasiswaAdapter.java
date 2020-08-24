@@ -16,9 +16,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.iwuapk.R;
-import com.example.iwuapk.layout.DosenActivity;
-import com.example.iwuapk.layout.MahasiswaActivity;
-import com.example.iwuapk.model.Dosen;
+
 import com.example.iwuapk.model.Mahasiswa;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -35,56 +33,64 @@ public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaAdapter.MyVi
     private Context mcontext;
 
     private ArrayList<Mahasiswa> mahasiswaArrayList;
-
-    public MahasiswaAdapter(ArrayList<Mahasiswa> mahasiswas, Context context) {
-        mahasiswaArrayList = mahasiswas;
-        mcontext = context;
-    }
-
-
-    @NonNull
-    @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_mahasiswa, parent, false);
-        return new MyViewHolder(view);
-
-
-    }
+    private String id;
 
 
 
-    @Override
-    public void onBindViewHolder(@NonNull MahasiswaAdapter.MyViewHolder holder, final int position) {
 
-        final Mahasiswa mahasiswa = mahasiswaArrayList.get(position);
-        final String nama = mahasiswaArrayList.get(position).getNamaMahasiswa();
-        final String asalSekolah = mahasiswaArrayList.get(position).getAsalSekolah();
-        final String prodi = mahasiswaArrayList.get(position).getProdi();
 
-        holder.tvNama_mhs.setText(mahasiswa.getNamaMahasiswa());
-        holder.tvAsalSekolah_mhs.setText(mahasiswa.getAsalSekolah());
-        holder.tvFakultas_mhs.setText(mahasiswa.getProdi());
+    public MahasiswaAdapter(ArrayList < Mahasiswa > mahasiswaArrayList, String id) {
+            this.mahasiswaArrayList = mahasiswaArrayList;
+            this.id = id;
 
-        holder.cvBtnDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Mahasiswa mahasiswa1 = mahasiswaArrayList.get(position);
+        }
 
-                Context context = view.getContext();
 
-                DatabaseReference drMahasiswa = FirebaseDatabase.getInstance().getReference("mahasiswa").child((mahasiswa1.getNamaMahasiswa()));
-                drMahasiswa.removeValue();
-                Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
-            }
-        });
+        @NonNull
+        @Override
+        public MyViewHolder onCreateViewHolder (@NonNull ViewGroup parent,int viewType){
+            View view = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.item_mahasiswa, parent, false);
+            return new MyViewHolder(view);
 
-        holder.cvItemMahasiswa.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
+        }
+
+
+        @Override
+        public void onBindViewHolder (@NonNull MahasiswaAdapter.MyViewHolder holder,
+        final int position){
+
+
+            Mahasiswa mahasiswa = mahasiswaArrayList.get(position);
+
+
+            holder.tvNama_mhs.setText(mahasiswa.getNamaMahasiswa());
+            holder.tvAsalSekolah_mhs.setText(mahasiswa.getAsalSekolah());
+            holder.tvFakultas_mhs.setText(mahasiswa.getProdi());
+
+            holder.cvBtnDelete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Mahasiswa mahasiswa1 = mahasiswaArrayList.get(position);
+                    Context context = view.getContext();
+
+                    DatabaseReference drMahasiswa = FirebaseDatabase.getInstance()
+                            .getReference("mahasiswa")
+                            .child(id)
+                            .child(mahasiswa1.getIdMahasiswa());
+                    drMahasiswa.removeValue();
+                    Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            holder.cvItemMahasiswa.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                }
+            });
+
 
 //        holder.cvItemMahasiswa.setOnLongClickListener(new View.OnLongClickListener() {
 //            @Override
@@ -111,45 +117,45 @@ public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaAdapter.MyVi
 //            }
 //        });
 
-    }
-
-    @Override
-    public int getItemCount() {
-        return mahasiswaArrayList.size();
-    }
-
-    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
-
-        TextView tvNama_mhs;
-        TextView tvAsalSekolah_mhs;
-        TextView tvFakultas_mhs;
-        CardView cvBtnDelete;
-        CardView cvItemMahasiswa;
-
-        public MyViewHolder(@NonNull View itemView) {
-            super(itemView);
-
-            tvNama_mhs = (TextView) itemView.findViewById(R.id.tvNama_Mahasiwa);
-            tvAsalSekolah_mhs = (TextView) itemView.findViewById(R.id.tvAsal_sekolah);
-            tvFakultas_mhs = (TextView) itemView.findViewById(R.id.tvFalkultas);
-            cvBtnDelete = (CardView) itemView.findViewById(R.id.cv_btn_delete_mhs);
-            cvItemMahasiswa = (CardView) itemView.findViewById(R.id.cv_ItemMahasiswa);
-
         }
 
         @Override
-        public void onClick(View view) {
-
+        public int getItemCount () {
+            return mahasiswaArrayList.size();
         }
 
-        @Override
-        public boolean onLongClick(View view) {
+        public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
+
+            TextView tvNama_mhs;
+            TextView tvAsalSekolah_mhs;
+            TextView tvFakultas_mhs;
+            CardView cvBtnDelete;
+            CardView cvItemMahasiswa;
+
+            public MyViewHolder(@NonNull View itemView) {
+                super(itemView);
+
+                tvNama_mhs = (TextView) itemView.findViewById(R.id.tvNama_Mahasiwa);
+                tvAsalSekolah_mhs = (TextView) itemView.findViewById(R.id.tvAsal_sekolah);
+                tvFakultas_mhs = (TextView) itemView.findViewById(R.id.tvFalkultas);
+                cvBtnDelete = (CardView) itemView.findViewById(R.id.cv_btn_delete_mhs);
+                cvItemMahasiswa = (CardView) itemView.findViewById(R.id.cv_ItemMahasiswa);
+
+            }
+
+            @Override
+            public void onClick(View view) {
+
+            }
+
+            @Override
+            public boolean onLongClick(View view) {
 
 
-            return false;
+                return false;
+            }
         }
+
+
     }
 
-
-
-}

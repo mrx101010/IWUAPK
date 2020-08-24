@@ -17,6 +17,14 @@ public class Mahasiswa {
         this.prodi = prodi;
     }
 
+    public String getIdMahasiswa() {
+        return idMahasiswa;
+    }
+
+    public void setIdMahasiswa(String idMahasiswa) {
+        this.idMahasiswa = idMahasiswa;
+    }
+
     public String getNamaMahasiswa() {
         return namaMahasiswa;
     }

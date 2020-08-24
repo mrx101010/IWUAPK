@@ -22,6 +22,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.example.iwuapk.R;
 import com.example.iwuapk.adapter.DosenAdapter;
 import com.example.iwuapk.adapter.MahasiswaAdapter;
+import com.example.iwuapk.model.Dosen;
 import com.example.iwuapk.model.Mahasiswa;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -38,9 +39,11 @@ public class MahasiswaActivity extends AppCompatActivity {
 
     private RecyclerView mahasiswaRecyclerView;
     private ArrayList<Mahasiswa> mahasiswaArrayList;
+    private ArrayList<Dosen> dosenArrayList;
     private MahasiswaAdapter adapter;
     private DatabaseReference databaseMahasiswa;
     private SwipeRefreshLayout swipeRefreshLayout;
+    private String id;
 
     private EditText edtNamaMahasiswa;
     private EditText edtAsal;
@@ -54,6 +57,7 @@ public class MahasiswaActivity extends AppCompatActivity {
 
 
         mahasiswaArrayList = new ArrayList<>();
+        dosenArrayList = new ArrayList<>();
 
         mahasiswaRecyclerView = (RecyclerView)findViewById(R.id.recyclerView_dataMahasiswa);
 
@@ -63,7 +67,7 @@ public class MahasiswaActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        String id = intent.getStringExtra(DosenAdapter.DOSEN_ID);
+        id = intent.getStringExtra(DosenAdapter.DOSEN_ID);
         String name = intent.getStringExtra(DosenAdapter.DOSEN_NAME);
         databaseMahasiswa = FirebaseDatabase.getInstance().getReference("mahasiswa").child(id);
 
@@ -167,7 +171,10 @@ public class MahasiswaActivity extends AppCompatActivity {
                         Mahasiswa mahasiswa = mahasiswaSnapshot.getValue(Mahasiswa.class);
                         mahasiswaArrayList.add(mahasiswa);
                     }
-                    adapter = new MahasiswaAdapter(mahasiswaArrayList,MahasiswaActivity.this);
+
+//                    adapter = new MahasiswaAdapter(mahasiswaArrayList,MahasiswaActivity.this);
+
+                    adapter = new MahasiswaAdapter(mahasiswaArrayList, id);
                     mahasiswaRecyclerView.setAdapter(adapter);
                 }
             }
