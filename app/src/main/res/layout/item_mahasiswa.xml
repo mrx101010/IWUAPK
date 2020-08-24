@@ -57,31 +57,31 @@
         </RelativeLayout>
 
 
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:id="@+id/cv_btn_update_mhs"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="66dp"-->
+<!--            android:layout_marginLeft="@dimen/_30sdp"-->
+<!--            android:layout_marginTop="@dimen/_125sdp"-->
+<!--            android:layout_marginRight="@dimen/_30sdp"-->
+<!--            android:backgroundTint="@color/hijau"-->
+<!--            android:clickable="true"-->
+<!--            android:foreground="?android:selectableItemBackground">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:gravity="center"-->
+<!--                android:text="Update"-->
+<!--                android:textColor="@color/putih"-->
+<!--                android:textSize="@dimen/_15ssp"-->
+<!--                android:textStyle="bold" />-->
+
+<!--        </androidx.cardview.widget.CardView>-->
+
+
         <androidx.cardview.widget.CardView
-            android:id="@+id/cv_btn_update"
-            android:layout_width="match_parent"
-            android:layout_height="66dp"
-            android:layout_marginLeft="@dimen/_30sdp"
-            android:layout_marginTop="@dimen/_125sdp"
-            android:layout_marginRight="@dimen/_30sdp"
-            android:backgroundTint="@color/hijau"
-            android:clickable="true"
-            android:foreground="?android:selectableItemBackground">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="Update"
-                android:textColor="@color/putih"
-                android:textSize="@dimen/_15ssp"
-                android:textStyle="bold" />
-
-        </androidx.cardview.widget.CardView>
-
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cv_btn_delete"
+            android:id="@+id/cv_btn_delete_mhs"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
             android:foreground="?android:selectableItemBackground"

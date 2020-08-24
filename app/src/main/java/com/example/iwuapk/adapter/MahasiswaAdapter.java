@@ -1,9 +1,13 @@
 package com.example.iwuapk.adapter;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -12,6 +16,8 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.iwuapk.R;
+import com.example.iwuapk.layout.DosenActivity;
+import com.example.iwuapk.layout.MahasiswaActivity;
 import com.example.iwuapk.model.Dosen;
 import com.example.iwuapk.model.Mahasiswa;
 import com.google.firebase.database.DatabaseReference;
@@ -21,13 +27,20 @@ import java.util.ArrayList;
 
 public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaAdapter.MyViewHolder> {
 
+    public static final String MAHASISWA_ID = "mahasiswaid";
+    public static final String MAHASISWA_NAME = "mahasiswaname";
+    public static final String MAHASISWA_ASAL = "mahasiswaasal";
+    public static final String MAHASISWA_PRODI = "mahasiswaprodi";
 
+    private Context mcontext;
 
     private ArrayList<Mahasiswa> mahasiswaArrayList;
 
-    public MahasiswaAdapter(ArrayList<Mahasiswa> mahasiswaArrayList) {
-        this.mahasiswaArrayList = mahasiswaArrayList;
+    public MahasiswaAdapter(ArrayList<Mahasiswa> mahasiswas, Context context) {
+        mahasiswaArrayList = mahasiswas;
+        mcontext = context;
     }
+
 
     @NonNull
     @Override
@@ -35,12 +48,19 @@ public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaAdapter.MyVi
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_mahasiswa, parent, false);
         return new MyViewHolder(view);
+
+
     }
 
+
+
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull MahasiswaAdapter.MyViewHolder holder, final int position) {
 
         final Mahasiswa mahasiswa = mahasiswaArrayList.get(position);
+        final String nama = mahasiswaArrayList.get(position).getNamaMahasiswa();
+        final String asalSekolah = mahasiswaArrayList.get(position).getAsalSekolah();
+        final String prodi = mahasiswaArrayList.get(position).getProdi();
 
         holder.tvNama_mhs.setText(mahasiswa.getNamaMahasiswa());
         holder.tvAsalSekolah_mhs.setText(mahasiswa.getAsalSekolah());
@@ -59,7 +79,37 @@ public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaAdapter.MyVi
             }
         });
 
+        holder.cvItemMahasiswa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+            }
+        });
+
+//        holder.cvItemMahasiswa.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View view) {
+//
+//                final Dialog dialog = new Dialog(mcontext);
+//                dialog.setContentView(R.layout.dialog_view_update_mhs);
+//                dialog.show();
+//
+//                Button editButton = (Button) dialog.findViewById(R.id.bt_edit_data_mhs);
+//                Button delButton = (Button) dialog.findViewById(R.id.bt_delete_data);
+//
+//                editButton.setOnClickListener(
+//                        new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View view) {
+//                                dialog.dismiss();
+//
+//                            }
+//                        }
+//                );
+//
+//                return true;
+//            }
+//        });
 
     }
 
@@ -68,12 +118,13 @@ public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaAdapter.MyVi
         return mahasiswaArrayList.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
 
         TextView tvNama_mhs;
         TextView tvAsalSekolah_mhs;
         TextView tvFakultas_mhs;
-        CardView cvBtnUpdate, cvBtnDelete;
+        CardView cvBtnDelete;
+        CardView cvItemMahasiswa;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -81,8 +132,24 @@ public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaAdapter.MyVi
             tvNama_mhs = (TextView) itemView.findViewById(R.id.tvNama_Mahasiwa);
             tvAsalSekolah_mhs = (TextView) itemView.findViewById(R.id.tvAsal_sekolah);
             tvFakultas_mhs = (TextView) itemView.findViewById(R.id.tvFalkultas);
-            cvBtnUpdate = (CardView) itemView.findViewById(R.id.cv_btn_update);
-            cvBtnDelete = (CardView) itemView.findViewById(R.id.cv_btn_delete);
+            cvBtnDelete = (CardView) itemView.findViewById(R.id.cv_btn_delete_mhs);
+            cvItemMahasiswa = (CardView) itemView.findViewById(R.id.cv_ItemMahasiswa);
+
+        }
+
+        @Override
+        public void onClick(View view) {
+
+        }
+
+        @Override
+        public boolean onLongClick(View view) {
+
+
+            return false;
         }
     }
+
+
+
 }
