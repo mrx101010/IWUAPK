@@ -83,7 +83,7 @@ public class MahasiswaUpdateActivity extends AppCompatActivity {
 
         drMahasiswa.setValue(mahasiswa);
 
-        Toast.makeText(this, "Artist updated", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Data Mahasiswa Berhasil Diupdate!", Toast.LENGTH_LONG).show();
 
         return true;
     }
