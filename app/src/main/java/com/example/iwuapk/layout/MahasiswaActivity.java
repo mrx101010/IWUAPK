@@ -1,6 +1,5 @@
 package com.example.iwuapk.layout;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -24,9 +23,7 @@ import com.example.iwuapk.adapter.DosenAdapter;
 import com.example.iwuapk.adapter.MahasiswaAdapter;
 import com.example.iwuapk.model.Dosen;
 import com.example.iwuapk.model.Mahasiswa;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -59,7 +56,7 @@ public class MahasiswaActivity extends AppCompatActivity {
         mahasiswaArrayList = new ArrayList<>();
         dosenArrayList = new ArrayList<>();
 
-        mahasiswaRecyclerView = (RecyclerView)findViewById(R.id.recyclerView_dataMahasiswa);
+        mahasiswaRecyclerView = (RecyclerView) findViewById(R.id.recyclerView_dataMahasiswa);
 
 //        mahasiswaRecyclerView = findViewById(R.id.recyclerView_dataMahasiswa);
         mahasiswaRecyclerView.setHasFixedSize(true);
@@ -70,7 +67,6 @@ public class MahasiswaActivity extends AppCompatActivity {
         id = intent.getStringExtra(DosenAdapter.DOSEN_ID);
         String name = intent.getStringExtra(DosenAdapter.DOSEN_NAME);
         databaseMahasiswa = FirebaseDatabase.getInstance().getReference("mahasiswa").child(id);
-
 
 
         TextView dosenName = findViewById(R.id.tvJudul_Mahasiswa);
@@ -98,10 +94,8 @@ public class MahasiswaActivity extends AppCompatActivity {
         });
 
 
+    }
 
-
-
-}
     private void showDialogForm() {
         final AlertDialog.Builder dialog = new AlertDialog.Builder(MahasiswaActivity.this);
         LayoutInflater inflater = getLayoutInflater();
@@ -171,9 +165,6 @@ public class MahasiswaActivity extends AppCompatActivity {
                         Mahasiswa mahasiswa = mahasiswaSnapshot.getValue(Mahasiswa.class);
                         mahasiswaArrayList.add(mahasiswa);
                     }
-
-//                    adapter = new MahasiswaAdapter(mahasiswaArrayList,MahasiswaActivity.this);
-
                     adapter = new MahasiswaAdapter(mahasiswaArrayList, id);
                     mahasiswaRecyclerView.setAdapter(adapter);
                 }
@@ -185,88 +176,4 @@ public class MahasiswaActivity extends AppCompatActivity {
             }
         });
     }
-
-//    private void updateMahasiswa(Mahasiswa mahasiswa){
-//
-//        databaseMahasiswa.child("mahasiswa")
-//                .child(mahasiswa.getNamaMahasiswa())
-//                .setValue(mahasiswa)
-//                .addOnSuccessListener(this, new OnSuccessListener<Void>() {
-//                    @Override
-//                    public void onSuccess(Void aVoid) {
-//
-//                        Snackbar.make(findViewById(R.id.btn_update_mahasiswa), "Data Mahasiswa Berhasil Diubah", Snackbar.LENGTH_LONG).setAction("Ok", new View.OnClickListener() {
-//                            @Override
-//                            public void onClick(View view) {
-//                                finish();
-//                            }
-//                        }).show();
-//
-//                    }
-//                });
-//    }
-
-//    public static Intent getActIntent(Activity activity){
-//        return new Intent(activity, MahasiswaActivity.class);
-//    }
-
-
-
-
-
-//    public void showUpdateDialog(final String id, String nama, String asal, String prodi){
-//
-//        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-//
-//        LayoutInflater inflater = getLayoutInflater();
-//
-//        final View dialogView = inflater.inflate(R.layout.form_update_mahasiswa,null);
-//
-//        dialogBuilder.setView(dialogView);
-//
-//        final EditText editTextNamaMhs = (EditText) dialogView.findViewById(R.id.et_update_name_mhs);
-//        final EditText editTextAsalMhs = (EditText) dialogView.findViewById(R.id.et_update_sekolah_mhs);
-//        final Spinner spinnerProdiMhs = (Spinner) dialogView.findViewById(R.id.spinner_update_prodi);
-//        final Button buttonUpdateMhs = (Button) dialogView.findViewById(R.id.btn_update_mahasiswa);
-//
-//        buttonUpdateMhs.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View view) {
-//
-//                String nama = editTextNamaMhs.getText().toString().trim();
-//                String asal = editTextAsalMhs.getText().toString().trim();
-//                String prodi = spinnerProdiMhs.getSelectedItem().toString();
-//
-//                if (TextUtils.isEmpty(nama)){
-//                    editTextNamaMhs.setError("Nama required");
-//                    return;
-//                }
-//
-//                if (TextUtils.isEmpty(asal)){
-//                    editTextAsalMhs.setError("Asal Sekolah required");
-//                    return;
-//                }
-//
-//                updateMahasiswa(id, nama, asal, prodi);
-//
-//            }
-//        });
-//
-//        dialogBuilder.setTitle("Update Data Mahasiswa"+id);
-//
-//        AlertDialog alertDialog = dialogBuilder.create();
-//        alertDialog.show();
-//
-//    }
-//
-//    private boolean updateMahasiswa(String id, String nama, String asal, String prodi){
-//
-//        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("mahasiswa").child(id);
-//
-//        Mahasiswa mahasiswa = new Mahasiswa(id, nama, asal, prodi);
-//
-//        databaseReference.setValue(mahasiswa);
-//
-//        return true;
-//    }
 }
