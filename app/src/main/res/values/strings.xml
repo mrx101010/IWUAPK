@@ -12,6 +12,7 @@
     <string name="selamat_datang">Selamat datang!</string>
     <string name="tambah">Tambah</string>
     <string name="tambah_dosen">Tambah Dosen</string>
+    <string name="btn_update_dosen">Update Dosen</string>
     <string name="title_activity_tambah_dosen">MainActivity</string>
 
 

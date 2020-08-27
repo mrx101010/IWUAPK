@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/itemListMahasiswa"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:background="@drawable/logo"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_100sdp"
+            android:alpha="0.1"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_300sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Edit Mahasiswa"
+                android:textSize="@dimen/_18ssp"
+                android:textColor="@color/ungu"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/_20sdp"/>
+
+
+            <EditText
+                android:id="@+id/et_update_name_mhs"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/et_border"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:paddingLeft="@dimen/_10sdp"
+                android:hint="Nama mahasiswa"
+                android:textColorHint="@color/hitam"
+                android:inputType="text|textCapCharacters"
+                android:textAllCaps="true"
+                android:maxLines="1"
+                android:alpha="0.8" />
+
+
+            <EditText
+                android:id="@+id/et_update_sekolah_mhs"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/et_border"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:paddingLeft="@dimen/_10sdp"
+                android:hint="Asal sekolah"
+                android:textColorHint="@color/hitam"
+                android:inputType="text|textCapCharacters"
+                android:textAllCaps="true"
+                android:maxLines="1"
+                android:alpha="0.8" />
+
+            <Spinner
+                android:id="@+id/spinner_update_prodi"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:entries="@array/prodi" />
+
+
+            <!--            <EditText-->
+            <!--                android:id="@+id/et_prodi"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="@dimen/_40sdp"-->
+            <!--                android:background="@drawable/et_border"-->
+            <!--                android:layout_marginTop="@dimen/_15sdp"-->
+            <!--                android:layout_marginStart="@dimen/_20sdp"-->
+            <!--                android:layout_marginEnd="@dimen/_20sdp"-->
+            <!--                android:layout_gravity="center"-->
+            <!--                android:paddingLeft="@dimen/_10sdp"-->
+            <!--                android:hint="prodi"-->
+            <!--                android:textColorHint="@color/hitam"-->
+            <!--                android:inputType="text|textCapSentences"-->
+            <!--                android:textAllCaps="true"-->
+            <!--                android:maxLines="1"-->
+            <!--                android:alpha="0.8" />-->
+
+            <Button
+                android:id="@+id/btn_update_mahasiswa"
+                android:layout_width="@dimen/_250sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_40sdp"
+                android:layout_marginTop="20dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_marginEnd="@dimen/_40sdp"
+                android:enabled="true"
+                android:text="update mahasiswa"
+                android:textStyle="bold"
+                android:textColor="@color/putih"/>
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>
