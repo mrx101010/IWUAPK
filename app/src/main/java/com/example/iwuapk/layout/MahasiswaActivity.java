@@ -87,13 +87,11 @@ public class MahasiswaActivity extends AppCompatActivity {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-//                Function
                 swipeRefreshLayout.setRefreshing(false);
                 loadRecyclerViewData();
             }
         });
-
-
+        //testing bro
     }
 
     private void showDialogForm() {
