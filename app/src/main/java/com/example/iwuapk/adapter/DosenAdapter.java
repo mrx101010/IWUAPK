@@ -31,10 +31,11 @@ public class DosenAdapter extends RecyclerView.Adapter<DosenAdapter.ViewHolder> 
     private ArrayList<Dosen> dosenArrayList;
     private String id;
 
-    public DosenAdapter(ArrayList<Dosen> dosenArrayList, String id) {
+    public DosenAdapter(ArrayList<Dosen> dosenArrayList) {
         this.dosenArrayList = dosenArrayList;
-        this.id = id;
+
     }
+
 
     @Override
     public DosenAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
